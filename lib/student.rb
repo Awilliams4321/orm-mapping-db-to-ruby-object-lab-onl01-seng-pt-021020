@@ -37,7 +37,6 @@ class Student
       INSERT INTO students (name, grade)
       VALUES (?, ?)
     SQL
-
     DB[:conn].execute(sql, self.name, self.grade)
   end
 
@@ -49,7 +48,6 @@ class Student
       grade TEXT
     )
     SQL
-
     DB[:conn].execute(sql)
   end
 
@@ -69,7 +67,6 @@ class Student
     sql = <<-SQL
     SELECT * FROM students WHERE grade IS NOT 12
     SQL
-
     DB[:conn].execute(sql).map do |row|
       self.new_from_db(row)
     end
